@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { Step6SimpleDatatable } from '../step6-simple-datatable/step6-simple-datatable';
 import { Person } from '../../shared/interfaces/person';
+import { Step6SimpleDatatable } from '../step6-simple-datatable/step6-simple-datatable';
 
 @Component({
-  selector: 'app-step6-simple-datatable-show',
+  selector: 'app-step7-component-output',
   imports: [Step6SimpleDatatable],
-  templateUrl: './step6-simple-datatable-show.html',
-  styleUrl: './step6-simple-datatable-show.css',
+  templateUrl: './step7-component-output.html',
+  styleUrl: './step7-component-output.css',
 })
-export class Step6SimpleDatatableShow {
-    persons: Person[] = [
+export class Step7ComponentOutput {
+      persons: Person[] = [
   {"firstname":"Franciska","lastname":"Jorin","email":"fjorin0@youtu.be"},
   {"firstname":"Ric","lastname":"Dominguez","email":"rdominguez1@techcrunch.com"},
   {"firstname":"Dulce","lastname":"Enderby","email":"denderby2@typepad.com"},
@@ -31,6 +31,8 @@ export class Step6SimpleDatatableShow {
   {"firstname":"Frannie","lastname":"Woodthorpe","email":"fwoodthorpei@addthis.com"},
   {"firstname":"Farica","lastname":"Sebert","email":"fsebertj@wiley.com"}
 ]
-  
 
+  showPersonClicked(data:Person){
+    console.log("Step 7", data);
+  }
 }
