@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-list-group-menu',
@@ -16,7 +16,9 @@ export class ListGroupMenu {
     {text: "Step 5 Event Bind", link: 'event-bind-example'},
     {text: "Step 6 Simple Datatable", link: 'simple-datatable-example'},
     {text: "Step 7 Component Output", link: 'component-output-example'},
-    {text: "Step 8 Template Driven Forms", link: 'template-driven-form-example'}
+    {text: "Step 8 Template Driven Forms", link: 'template-driven-form-example'},
+    {text: "Step 9 Reactive Forms", link: 'reactive-form-example'},
+    {text: "Step 10 User Login", link: 'user-login-example'}
     
   ]
 
