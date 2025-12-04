@@ -16,4 +16,13 @@ import { Step3PersonTableInput } from '../step3-person-table-input/step3-person-
 })
 export class Step8TemplateDrivenForms {
 
+    objectPerson: Person|undefined;
+    arrayPerson: Person[] = [];
+
+    onPerson(data: Person) {
+      console.log("Father",data)
+      this.objectPerson = data;
+      this.arrayPerson.push(data);
+  
+  }
 }

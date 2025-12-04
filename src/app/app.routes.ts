@@ -15,7 +15,7 @@ export const routes: Routes = [
   {path:'event-bind-example', component: Step5EventBind},
   {path:'simple-datatable-example', component:Step6SimpleDatatableShow},
   {path:'component-output-example', component:Step7ComponentOutput},
-  {path: 'template-driven-form-example', component:Step8TemplateDrivenForms},
+  {path:'template-driven-form-example', component:Step8TemplateDrivenForms},
   {path:'welcome', component: Welcome},
   {path:'', redirectTo: 'welcome', pathMatch: 'full'}
 

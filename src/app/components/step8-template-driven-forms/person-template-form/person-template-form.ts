@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -19,8 +19,19 @@ import { Person } from '../../../shared/interfaces/person';
   styleUrl: './person-template-form.css',
 })
 export class PersonTemplateForm {
+  @Output() personOutput = new EventEmitter<Person>();
+  @ViewChild('eForm', {static:false}) form:NgForm | undefined;
 
     onSubmit(value:any){
     console.log(value);
+    this.personOutput.emit(value);
+  }
+
+    OnSetValue(){
+    this.form?.setValue({
+      firstname: "lakis",
+      lastname: "lalakis",
+      email:"lakis@aueb.gr"
+    })
   }
 }
