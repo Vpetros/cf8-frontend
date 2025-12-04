@@ -41,7 +41,22 @@ export class Step11CreateUser {
           type: new FormControl('', Validators.required)
         })
       ])
-    })
+    },
+      this.passwordConfirmPasswordValidator
+  )
+
+  passwordConfirmPasswordValidator(control: AbstractControl):{[key:string]:boolean} | null {
+    const form = control as FormGroup;
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
+
+    if (password && confirmPassword && password!== confirmPassword){
+      form.get('confirmPassword')?.setErrors({passwordMismatch: true});
+      return {passwordMismatch: true}
+    }
+
+    return null
+  }
 
   phone = this.form.get('phone') as FormArray;
 
@@ -56,6 +71,20 @@ export class Step11CreateUser {
 
   deletePhoneNumber(index:number){
     this.phone.removeAt(index);
+  }
+
+  onSubmit(){
+    console.log(this.form.value);
+    const user = this.form.value as IUser
+
+    this.userService.createUser(user).subscribe({
+      next: (response) => {
+        this.form.reset()
+      },
+      error: (error) =>{
+        console.log("There was error", error);
+      }
+    })
   }
 
 }
