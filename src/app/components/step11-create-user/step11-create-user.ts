@@ -24,6 +24,12 @@ import { CommonModule } from '@angular/common';
 export class Step11CreateUser {
   userService = inject(UserService);
 
+  registrationStatus: {success: boolean, message:string} = {
+    success: false,
+    message: "Not attempted yet"
+  }
+
+
     form = new FormGroup({
       username: new FormControl('', Validators.required),
       firstname: new FormControl(''),
@@ -80,9 +86,11 @@ export class Step11CreateUser {
     this.userService.createUser(user).subscribe({
       next: (response) => {
         this.form.reset()
+        this.registrationStatus = {success:true, message: "User registered"}
       },
       error: (error) =>{
         console.log("There was error", error);
+        this.registrationStatus = {success:false, message: error}
       }
     })
   }

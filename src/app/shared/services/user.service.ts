@@ -47,4 +47,19 @@ export class UserService {
   createUser(data:IUser){
     return this.http.post<IUser>(API_URL, data);
   }
+
+    isTokenExpired(): boolean {
+    const token = localStorage.getItem('access_token');
+    if (!token) return true;
+
+    try {
+      const decoded: any = jwtDecode(token);
+      const exp = decoded.exp;
+      const now = Math.floor(Date.now()/1000);
+      console.log("Now", now, "Exp", exp);
+      return exp < now
+    } catch (e) {
+      return true;
+    }
+  }
 }
